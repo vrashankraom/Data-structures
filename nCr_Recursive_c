@@ -1,0 +1,32 @@
+
+#include <stdio.h>
+int Fact(int n)
+{
+    if(n==0)
+       return 1;
+    return Fact(n-1)*n;
+}
+int nCr(int n,int r)
+{
+    int num=Fact(n);
+    int den1=Fact(r);
+    int den2=Fact(n-r);
+    return num/(den1*den2);
+}
+int NCR(int n,int r)
+{
+    if(n==r || r==0)
+       return 1;
+    return NCR(n-1,r-1)+NCR(n-1,r);
+}
+int main()
+{
+int n,r;
+   printf("Give the value of n and r for finding nCr\n");
+   scanf("%d",&n);
+   scanf("%d",&r);
+   printf("The Value of %dC%d is %d\n",n,r,nCr(n,r));
+   printf("The Value of %dC%d is %d",n,r,NCR(n,r));
+
+    return 0;
+}
