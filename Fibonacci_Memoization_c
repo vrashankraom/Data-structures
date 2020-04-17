@@ -1,0 +1,35 @@
+int arr[10];
+#include <stdio.h>
+int Fib(int n)
+{
+    
+    if(n<=1)
+    {
+        arr[n]=n;
+        return n;
+        
+    }
+    else{
+        if(arr[n-2]==-1)
+           arr[n-2]=Fib(n-2);
+        if(arr[n-1]==-1)
+           arr[n-1]=Fib(n-1);
+    
+        return Fib(n-2)+Fib(n-1);
+           
+    }
+    
+}
+int main()
+{
+    
+    int n,result;
+    scanf("%d",&n);
+    arr[n];
+    for(int i=0;i<n;i++)
+        arr[i]=-1;
+    result=Fib(n);
+    printf("%d",result);
+    
+    return 0;
+}
