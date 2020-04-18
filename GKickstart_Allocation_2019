@@ -1,0 +1,49 @@
+
+#include<stdio.h>
+void main()
+{
+    int n,f,k=0;
+    scanf("%d",&n);
+   int a[n];
+    int c=n;
+    while(n>0)
+    {
+        int num,total,i,j,sum=0,count=0;
+        scanf("%d",&num);
+        scanf("%d",&total);
+        int arr[num];
+        for(i=0;i<num;i++)
+            scanf("%d",&arr[i]);
+        //sort
+        for(i=0;i<num-1;i++)
+        {
+            for(j=0;j<num-i-1;j++)
+            {
+                if(arr[j+1]<arr[j])
+                {
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        
+        for(i=0;i<num;i++)
+        {    if(arr[i]<total)
+             {
+                 sum=sum+arr[i];
+                 count++;
+             }
+             if(arr[i+1]+sum>total)
+                break;
+        }
+
+   a[k++]=count;
+      
+   n--;
+    
+   }
+    for(f=0;f<c;f++)
+        printf("Case #%d: %d\n",f+1,a[f]);
+    
+}
