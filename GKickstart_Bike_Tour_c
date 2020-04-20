@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+    int n,f,k=0;
+    scanf("%d",&n);
+   int a[n];
+    int c=n;
+    while(n>0)
+    {
+        int num,i,count=0;
+        scanf("%d",&num);
+        
+        int arr[num];
+        for(i=0;i<num;i++)
+            scanf("%d",&arr[i]);
+
+        for(i=0;i<num-1;i++)
+        {    if(arr[i-1]<arr[i] && arr[i]>arr[i+1]){
+                 count++;
+        }
+        }
+        a[k++]=count;
+        n--;
+   }
+    for(f=0;f<c;f++)
+        printf("Case #%d: %d\n",f+1,a[f]);
+return 0;
+}
