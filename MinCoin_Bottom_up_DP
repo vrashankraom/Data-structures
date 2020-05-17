@@ -1,15 +1,23 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
 #include <iostream>
 using namespace std;
 int CoinDP(int *coins,int N,int *array)
 {
     array[0]=0;
     for(int i=1;i<=N;i++)
-    {  int j=1;
+    {  int j=0;
        int right=N;
        int left;
-        while(j<=i && j<=3)
+        while(j<=2 && i-coins[j]>=0 )
         {
-            left=1 + array[i-coins[j-1]];
+            left=1 + array[i-coins[j]];
             right=min(left,right);
             array[i]=right;
             j++;
@@ -29,3 +37,4 @@ int main()
 
     return 0;
 }
+
