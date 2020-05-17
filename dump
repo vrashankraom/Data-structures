@@ -1,0 +1,46 @@
+#include<stdio.h>
+int main()
+{
+    int n,f,k=0,lim;
+    scanf("%d",&n);
+   int a[n];
+    int c=n;
+    int m=0;
+    while(n)
+    {
+        int num,i,count=0;
+        scanf("%d",&num);
+        
+        int arr[num];
+        scanf("%d",&lim);
+        printf("%d",lim);
+        int y;
+        for(i=0;i<num;i++)
+            scanf("%d",&arr[i]);
+
+        for(i=0;i<num;i++)
+        {   
+           if(arr[i]==lim)
+           {   
+              y=lim-1;
+              
+              int p=i;
+              while(y)
+              {
+                 if(arr[p++]!=y)
+                    break;
+                 y--;
+              }
+              if(y==0)
+                count++;
+           }
+           
+        }
+        a[m++]=count;
+        n--;
+    }
+
+    for(f=0;f<c;f++)
+        printf("Case #%d: %d\n",f+1,a[f]);
+    return 0;
+}
