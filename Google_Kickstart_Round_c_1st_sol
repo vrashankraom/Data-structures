@@ -13,26 +13,28 @@ int main()
         
         int arr[num];
         scanf("%d",&lim);
-        printf("%d",lim);
-        int y;
+        
+        
         for(i=0;i<num;i++)
             scanf("%d",&arr[i]);
 
         for(i=0;i<num;i++)
         {   
-           if(arr[i]==lim)
+           if(arr[i]==lim )
            {   
-              y=lim-1;
+             int y=lim;
               
               int p=i;
               while(y)
               {
+                   
                  if(arr[p++]!=y)
-                    break;
-                 y--;
+                     break;
+                  --y;  
+                
               }
               if(y==0)
-                count++;
+                 count++;
            }
            
         }
