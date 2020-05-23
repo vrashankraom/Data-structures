@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+bool check(int queen[][10],int i,int j,int n)
+{
+     int m=i;
+    while(m>=0)
+    {
+        if(queen[m][j]==1)
+           return false;
+        m--;
+    }
+    int k=i;
+    int l=j;
+    while(k >=0 && l>=0)
+    {
+        if(queen[k][l]==1)
+           return false;
+        k--;
+        l--;
+    }
+    k=i;
+    l=j;
+    while(k>=0&& l<n)
+    {
+        if(queen[k][l]==1)
+           return false;
+        k--;
+        l++;
+    }
+return true;
+}
+bool queenAllocator(int queen[][10],int i,int n)
+{  
+     if(i==n)
+    { 
+       
+       for(int i=0;i<n;i++){
+          for(int j=0;j<n;j++){
+             if(queen[i][j]==1) 
+               cout<<"Q ";
+             else
+               cout<<"_ ";
+          }
+          cout<<endl;}
+          cout<<endl<<endl;
+    return false;
+    }
+    for(int j=0;j<n;j++)
+    {
+     if(check(queen,i,j,n)){
+        queen[i][j]=1;
+    
+     if(queenAllocator(queen,i+1,n))
+        return true;
+     
+     queen[i][j]=0;
+     
+    }
+}
+return false;
+}
+int main()
+{  int n;
+    cin>>n;
+    int queen[10][10]={0};
+    cout<<queenAllocator(queen,0,n)<<endl;
+    
+    return 0;
+}
+
