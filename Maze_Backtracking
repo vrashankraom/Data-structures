@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+bool pathfinder(int maze[4][4],int path[4][4],int i,int j)
+{
+     if(i==3 && j==3)
+    { 
+       path[i][j]=1;
+       for(i=0;i<4;i++){
+          for(j=0;j<4;j++){
+              cout<<path[i][j]<<" ";}
+          cout<<endl;}
+       return true;
+    }
+    if(i>=4 || j>=4 ||i<0 ||j<0|| path[i][j]==1 || maze[i][j]==0)
+       return false;
+   
+    path[i][j]=1;
+    if(pathfinder(maze,path,i,j+1)){
+       return true;}
+    if(pathfinder(maze,path,i+1,j)){
+       return true;}
+    if(pathfinder(maze,path,i-1,j)){
+       return true;}
+    if(pathfinder(maze,path,i,j-1)){
+       return true;}
+    path[i][j]=0;
+return false;
+}
+int main()
+{
+    int maze[4][4]={{1,1,1,0},
+                    {1,1,0,0},
+                    {0,1,1,0},
+                    {0,1,1,1}};
+    
+    int path[4][4]={0};
+    cout<<pathfinder(maze,path,0,0)<<endl;
+    
+    return 0;
+}
