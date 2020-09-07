@@ -1,9 +1,9 @@
-//Program to sort two arrays in space O(1)
+//Program to sort array containing 0s 1s and 2s in O(1)
 
 #include <bits/stdc++.h>
 
 using namespace std;
-void twoSortedArrays(vector<int>&arr){
+void Sorting(vector<int>&arr){
     int low = 0;
     int mid = 0;
     int high =arr.size()-1;
@@ -33,7 +33,7 @@ int main()
         arr.push_back(temp);
     }
     
-    twoSortedArrays(arr);
+    Sorting(arr);
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }
