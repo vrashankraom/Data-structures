@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void LeetCodeSearchMatrix(vector<vector<int>>&mat,int target){
+void GfGSearchMatrix(vector<vector<int>>&mat,int target){
     if(mat.size()==0)
        return;
     int n= mat.size()-1;
@@ -46,7 +46,7 @@ int main()
     cout<<"Please enter the target"<<endl;
     int target;
     cin>>target;
-    LeetCodeSearchMatrix(mat,target);
+    GfGSearchMatrix(mat,target);
     
 
     return 0;
