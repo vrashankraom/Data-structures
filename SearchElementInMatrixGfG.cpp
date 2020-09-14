@@ -1,4 +1,4 @@
-// Optimal Solution for LeetCode find element in a matrix.
+// Optimal Solution for GfG find element in a matrix.
 //Here the first element of next row NEED NOT BE larger than the last element of the first row
 
 #include <bits/stdc++.h>
