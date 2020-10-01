@@ -1,5 +1,5 @@
 //Program to sort array containing 0s 1s and 2s in O(1)
-
+/* Sorting 0 and 1 is easy. you need to count all the 0s first.then in the same array, add the count of 0s then n-count 1s */
 #include <bits/stdc++.h>
 
 using namespace std;
