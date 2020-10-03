@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 int BSearch(int *arr,int l,int h,int k)
 {
     int mid =(l+h)/2;
