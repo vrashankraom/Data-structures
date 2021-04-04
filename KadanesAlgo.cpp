@@ -1,33 +1,63 @@
-//This algorithm find the maximum subarray with time complexity of O(n) and space of O(1)
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
 
 #include <bits/stdc++.h>
 
 using namespace std;
-int maxSubArray(vector<int>&arr){
-    int max_so_far =arr[0];
-    int maximum=arr[0];
-    for(int i=1;i<arr.size();i++){
-        max_so_far = max(max_so_far +arr[i],arr[i]);
-        if(max_so_far>maximum){
-            maximum=max_so_far;
+
+void maxSubArray(vector<int>&a){
+    //Initialising sum to 0 and maxi to minimum number
+    
+    int sum=0;
+    int maxi = INT_MIN;
+    
+    //Two indices to hold the start and end of the index of max subarray
+    int index1;
+    int index2;
+    
+    //Initialising s to 0
+    int s=0;
+    for(int i=0;i<a.size();i++){
+        sum = sum+a[i];
+        if(sum>maxi){
+            maxi=sum;
+            index1=s;
+            index2=i;
         }
+        if(sum<=0){
+            sum=0;
+            s=i+1;
+        }
+        
     }
-    return maximum;
+    cout<<maxi<<endl;
+    for(int i=index1;i<=index2;i++){
+        cout<<a[i]<<" ";
+    }
+    
 }
 
 int main()
 {
     int n;
-    vector<int>arr;
+    int d;
+    cout<<"Please enter the array count"<<endl;
     cin>>n;
+    vector<int>a;
+    cout<<"Please enter the array to find the maximum subarray"<<endl;
+
+    
     for(int i=0;i<n;i++){
-        int temp;
-        cin>>temp;
-        arr.push_back(temp);
+        cin>>d;
+        a.push_back(d);
     }
-    
-    cout<<maxSubArray(arr);
-    
+     
+    maxSubArray(a);
 
     return 0;
 }
