@@ -1,44 +1,46 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+
 using namespace std;
-int countNumber(string str,int left,int right){
-    while(left>=0 && right<str.length() && str[left]==str[right]){
-        right=right+1;
-        left=left-1;
-        
-    }
-    return right-left-1;
-}
-void permutations(string str){
-    if(str.length()==0){
-        cout<<"String does not exits";
-        return;
-    }
-    if(str.length()==1){
-        cout<<str[0];
-        return;
-    }
+
+int main()
+{
+    string s;
+    cin>>s;
+    int l;
+    int h;
     int start=0;
-    int end=0;
-    for(int i=0;i<str.length();i++){
-        int len1=countNumber(str,i,i);
-        int len2=countNumber(str,i,i+1);
-        int len=max(len1,len2);
-        if(len>end-start){
-            start = i-(len-1)/2;
-            end = i+len/2;
-           // cout<<start<<endl<<end<<endl;
+    int end=1;
+
+    for(int i=1;i<s.length();i++){
+        
+        //For Even Palindrome string
+        l=i-1;
+        h=i;
+        
+        while(l>=0 && h<s.length() &&s[l]==s[h]){
+            if(h-l+1>end){
+                start=l;
+                end=h-l+1;
+            }
+            l--;
+            h++;
+        }
+        
+        //For Odd Palindrome string
+        l=i-1;
+        h=i+1;
+        while(l>=0 && h<s.length() &&s[l]==s[h]){
+            if(h-l+1>end){
+                start=l;
+                end=h-l+1;
+            }
+            l--;
+            h++;
         }
     }
-        for(int i=start;i<=end;i++){
-            cout<<str[i];
-        }
-}
+    for(int i=start;i<=start+end-1;i++){
+        cout<<s[i]<<" ";
+    }
 
-
-
-int main(){
-    string str;
-    cin>>str;
-    permutations(str);
     return 0;
 }
