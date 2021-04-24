@@ -1,3 +1,5 @@
+//Same logic as infixtoPostfix, but first string is reversed, then round brackets are inversed and at last resulting string is reversed
+
 #include <bits/stdc++.h>
 
 using namespace std;
