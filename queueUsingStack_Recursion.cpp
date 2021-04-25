@@ -2,8 +2,20 @@
 
 using namespace std;
 
-int dequeue(stack<int>&s){
+class que{
+    
+    stack<int>s;
+    
+public:
+    void enqueue(int value){
+    s.push(value);
+    }
+
+    int dequeue(){
     //if the stack has only one element then return it and pop it.
+    if(s.empty()){
+        return -1;
+    }
     if(s.size()==1){
         int a= s.top();
         s.pop();
@@ -15,26 +27,32 @@ int dequeue(stack<int>&s){
     s.pop();
     
     //The a value(last element from the stack) is returned and stored in res.
-    int res = dequeue(s);
+    int res = dequeue();
     
     //Push all the elements except the last element in inverted fashion
     s.push(cur);
     return res;
-}
-
+    }
+};
 int main()
 {
-    stack<int>s;
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    s.push(4);
-    int ans = dequeue(s);
-    cout<<ans<<endl;
-    ans = dequeue(s);
-    cout<<ans<<endl;
-    ans = dequeue(s);
-    cout<<ans;
+    
+   que q;
+   q.enqueue(1);
+   q.enqueue(2);
+   q.enqueue(3);
+   q.enqueue(4);
+   q.enqueue(5);
+   
+   cout<<q.dequeue()<<endl;
+   cout<<q.dequeue()<<endl;
+   
+   q.enqueue(6);
+   cout<<q.dequeue()<<endl;
+   cout<<q.dequeue()<<endl;
+   cout<<q.dequeue()<<endl;
+   cout<<q.dequeue()<<endl;
+   cout<<q.dequeue()<<endl;
 
     return 0;
 }
