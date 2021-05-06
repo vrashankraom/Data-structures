@@ -38,12 +38,18 @@ void InsertEnd(node** head){
 }
 
 void DeleteFront(node** head){
+    if(*head==NULL){
+        return;
+    }
     node* temp = *head;
     *head=(*head)->link;
     temp->link=NULL;
     delete(temp);
 }
 void DeleteEnd(node** head){
+    if(*head==NULL){
+        return;
+    }
     node* temp = *head;
     node* temp1 =*head;
     while(temp1->link!=NULL){
