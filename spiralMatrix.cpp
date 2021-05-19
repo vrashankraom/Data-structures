@@ -47,16 +47,19 @@ int main()
         }
 
         column_end--;
-        
+       if(row_start<=row_end) {
        for(int column=column_end;column>=column_start;column--){
             cout<<a[row_end][column]<<" ";
         }
-        
+       
         row_end--;
+       }
+       if(column_start<=column_end) {
         for(int row=row_end;row>=row_start;row--){
             cout<<a[row][column_start]<<" ";
         }
         column_start++;
+       }
         
         
     }
