@@ -32,3 +32,26 @@ int main()
     getTwoSumIndices(a,sum);
     return 0;
 }
+
+
+
+//To specifically get the two elements
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+       
+        vector<int> ans;
+       unordered_set<int>s;
+       
+       for(int i=0;i<nums.size();i++){
+           if(s.find(target-nums[i])!=s.end()){
+               ans.push_back(nums[i]);
+               ans.push_back(target-nums[i]);
+               return ans;
+          }
+           s.insert(nums[i]);
+           
+       }
+        return ans;
+    }
+};
