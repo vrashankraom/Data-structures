@@ -1,11 +1,3 @@
-//using vectors
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
 
 #include <iostream>
 #include <vector>
@@ -66,7 +58,7 @@ bool isFull(){
     return top==MAXSIZE-1;
 }
 bool isEmpty(){
-    return MAXSIZE==-1;
+    return top==-1;
 }
 void push(int a){
     if(!isFull()){
