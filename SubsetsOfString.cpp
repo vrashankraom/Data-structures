@@ -8,7 +8,6 @@ void subsets(char *a,int i,int j,char *temp){
     if(a[i]=='\0'){
         temp[j]='\0';
         cout<<temp<<endl;
-        count = count;
         return;
     }
     
